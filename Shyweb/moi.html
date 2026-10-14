@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShyWeb | Sur moi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Apprends à me connaître</h1>
+
+  <p>Bienvenue ! Lis ma présentation pour en apprendre plus sur moi.</p>
+
+  <section class="quiz">
+    <h2>Ma présentation</h2>
+
+    <h3>Qui suis-je ?</h3>
+    <p>Je m'appelle Ethan. J'aime apprendre de nouvelles choses et créer des projets.</p>
+
+    <h3>Mes loisirs</h3>
+    <p>Pendant mon temps libre, j'aime découvrir de nouvelles activités et développer mes compétences.</p>
+
+    <h3>Mes objectifs</h3>
+    <p>J'aimerais continuer à apprendre et améliorer mes connaissances en informatique.</p>
+
+    <button onclick="document.getElementById('quiz').style.display='block'; this.style.display='none'">
+      J'ai terminé, passer au quiz !
+    </button>
+  </section>
+
+  <section class="quiz" id="quiz">
+    <h2>Petit quiz sur moi</h2>
+
+    <p>1. Comment est-ce que je m'appelle ?</p>
+    <button onclick="verifier(this, true)">Ethan</button>
+    <button onclick="verifier(this, false)">Thomas</button>
+    <p class="resultat"></p>
+
+    <p>2. Qu'est-ce que j'aime apprendre ?</p>
+    <button onclick="verifier(this, true)">De nouvelles choses</button>
+    <button onclick="verifier(this, false)">Rien du tout</button>
+    <p class="resultat"></p>
+
+    <p>3. Quel est l'un de mes objectifs ?</p>
+    <button onclick="verifier(this, true)">Améliorer mes connaissances en informatique</button>
+    <button onclick="verifier(this, false)">Ne plus rien apprendre</button>
+    <p class="resultat"></p>
+
+    <a href="index.html">← Retour à l'accueil</a>
+  </section>
+
+  <script>
+    function verifier(bouton, correct) {
+      const resultat = bouton.parentElement.querySelectorAll(".resultat");
+      const question = bouton.parentElement;
+      const boutons = question.querySelectorAll("button");
+
+      const bloc = bouton.nextElementSibling?.classList.contains("resultat")
+        ? bouton.nextElementSibling
+        : bouton.parentElement.querySelector(".resultat");
+
+      bloc.textContent = correct ? "Bonne réponse ! 🎉" : "Pas tout à fait, relis la présentation !";
+      bloc.style.color = correct ? "#4ade80" : "#f87171";
+
+      boutons.forEach(b => b.disabled = true);
+    }
+  </script>
+
+</body>
+</html>

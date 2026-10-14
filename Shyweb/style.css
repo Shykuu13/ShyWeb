@@ -1,0 +1,247 @@
+
+/* ===== STYLE GENERAL ===== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0d0a14;
+    color: #f5f3ff;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* ===== TITRE ET INTRODUCTION ===== */
+
+.hero {
+    text-align: center;
+    padding: 60px 20px 35px;
+}
+
+.hero h1 {
+    font-size: 38px;
+    color: #a78bfa;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    color: #c4b5fd;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ===== CARTES PRINCIPALES ===== */
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto 60px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #17111f;
+    border: 1px solid #38264f;
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: 0.25s ease;
+}
+
+.card:hover {
+    border-color: #8b5cf6;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px #8b5cf622;
+}
+
+.card h2 {
+    color: #c4b5fd;
+    font-size: 23px;
+}
+
+.card p {
+    color: #c4c0d0;
+}
+
+/* Carte présentation plus petite */
+
+.presentation-card {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* Carte quiz plus grande */
+
+.quiz-card {
+    flex: 1.4;
+    min-width: 280px;
+}
+
+/* ===== BOUTONS PRESENTATION ET QUIZ ===== */
+
+.btn {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    background: #211536;
+    border: 1px solid #8b5cf6;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.2s ease;
+    margin-top: 5px;
+}
+
+.btn:hover {
+    background: #8b5cf6;
+    transform: translateY(-3px);
+    box-shadow: 0 0 12px #8b5cf655;
+}
+
+/* Petit bouton présentation */
+
+.btn-presentation {
+    font-size: 15px;
+}
+
+/* Gros bouton quiz */
+
+.btn-quiz {
+    font-size: 19px;
+    padding: 16px 32px;
+}
+
+/* ===== RESEAUX SOCIAUX ===== */
+
+.footer {
+    margin-top: 60px;
+    padding: 30px 20px;
+    border-top: 2px solid #8b5cf6;
+    text-align: center;
+    background: #110c1b;
+}
+
+.footer > p:first-child {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 18px;
+    color: #c4b5fd;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    background: #211536;
+    border: 1px solid #8b5cf6;
+    padding: 10px 18px;
+    border-radius: 10px;
+    transition: 0.2s ease;
+}
+
+.social-links a:hover {
+    background: #8b5cf6;
+    transform: translateY(-3px);
+}
+
+.copyright {
+    color: #888;
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+/* ===== ADAPTATION TELEPHONE ===== */
+
+@media (max-width: 600px) {
+    .hero {
+        padding-top: 40px;
+    }
+
+    .hero h1 {
+        font-size: 29px;
+    }
+
+    .container {
+        width: 92%;
+        gap: 18px;
+    }
+
+    .card {
+        width: 100%;
+        min-width: 0;
+        padding: 25px 18px;
+    }
+
+    .btn-quiz {
+        font-size: 17px;
+        padding: 14px 24px;
+    }
+}
+/* ===== PETales DE CERISIER VIOLETTES ===== */
+
+.petal {
+    position: fixed;
+    top: -30px;
+    left: 0;
+    z-index: 999;
+    pointer-events: none;
+    user-select: none;
+    color: #c4a1ff;
+    font-size: var(--size, 18px);
+    opacity: 0;
+    animation: petal-fall var(--duration, 9s) linear var(--delay, 0s) infinite;
+    filter: drop-shadow(0 0 5px #a855f755);
+}
+
+@keyframes petal-fall {
+    0% {
+        transform: translate3d(0, -5vh, 0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: translate3d(45px, 50vh, 0) rotate(180deg);
+        opacity: 0.7;
+    }
+
+    90% {
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: translate3d(-30px, 110vh, 0) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Respecte les préférences de mouvement du visiteur */
+@media (prefers-reduced-motion: reduce) {
+    .petal {
+        display: none;
+    }
+}
